@@ -19,14 +19,14 @@ namespace EjemploPostAzure.Services
 
         public async Task SendMessageAsync(string data)
         {
-            ServiceBusSender sender = this.client.CreateSender("techclub");
+            ServiceBusSender sender = this.client.CreateSender("gestordecolas");
             ServiceBusMessage message = new ServiceBusMessage(data);
             await sender.SendMessageAsync(message);
         }
 
         public async Task<List<string>> ReceiveMessagesAsync()
         {
-            ServiceBusProcessor processor = this.client.CreateProcessor("techclub");
+            ServiceBusProcessor processor = this.client.CreateProcessor("gestordecolas");
 
             processor.ProcessMessageAsync += Processor_ProcessMessageAsync;
 
